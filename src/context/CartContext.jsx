@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useMemo, useState } from 'react'
+import { createContext, useCallback, useMemo, useState } from 'react'
 
 const CartContext = createContext()
 
@@ -72,12 +72,4 @@ export function CartProvider({ children }) {
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
 
-export function useCart() {
-  const context = useContext(CartContext)
-
-  if (context === undefined) {
-    throw new Error('useCart debe usarse dentro de CartProvider')
-  }
-
-  return context
-}
+export { CartContext }
