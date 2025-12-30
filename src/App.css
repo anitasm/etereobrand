@@ -177,6 +177,23 @@ nav a:hover {
   border-color: rgba(157, 107, 255, 0.4);
 }
 
+.highlight-media {
+  background: radial-gradient(circle at 30% 20%, rgba(157, 107, 255, 0.16), rgba(0, 0, 0, 0.4));
+  border-radius: var(--radius);
+  padding: 10px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+}
+
+.highlight-media img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 4px);
+}
+
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.1em;

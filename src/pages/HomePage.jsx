@@ -43,16 +43,25 @@ export function HomePage() {
         </div>
         <div className="grid highlights">
           <article className="highlight-card">
+            <div className="highlight-media">
+              <img src="https://ik.imagekit.io/74j0izxpvl/reunion_cafe.png" alt="Reunión con café en un ambiente nocturno" />
+            </div>
             <p className="eyebrow">Mood</p>
             <h3>Club & rooftops</h3>
             <p>Texturas suaves que se activan con luces y sombras. Ideales para noches largas.</p>
           </article>
           <article className="highlight-card">
+            <div className="highlight-media">
+              <img src="https://ik.imagekit.io/74j0izxpvl/fiesta_ojodepez.png" alt="Fiesta nocturna capturada con ojo de pez" />
+            </div>
             <p className="eyebrow">Materialidad</p>
             <h3>Felpa liviana</h3>
             <p>Capuchas amplias, cuellos altos y ajustes pensados para moverte sin fricción.</p>
           </article>
           <article className="highlight-card">
+            <div className="highlight-media">
+              <img src="https://ik.imagekit.io/74j0izxpvl/comiendo_sushi.png" alt="Personas compartiendo sushi durante la noche" />
+            </div>
             <p className="eyebrow">Drop cápsula</p>
             <h3>Series cortas</h3>
             <p>Disponibilidad limitada con colores neón apagados y neutros urbanos.</p>
