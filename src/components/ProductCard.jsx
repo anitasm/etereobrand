@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom'
 
 export function ProductCard({ product }) {
+  const categoryLabel = product.category
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+
   return (
     <article className="product-card">
       <Link to={`/producto/${product.id}`}>
@@ -11,7 +16,7 @@ export function ProductCard({ product }) {
           <p className="eyebrow">Buzo cápsula</p>
           <h3>{product.name}</h3>
           <p className="price">${product.price.toLocaleString('es-AR')}</p>
-          <p className="muted">{product.colors.join(' · ')}</p>
+          <p className="muted category">{categoryLabel}</p>
         </div>
       </Link>
     </article>

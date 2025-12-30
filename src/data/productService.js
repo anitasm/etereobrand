@@ -55,6 +55,7 @@ export async function registerSale({ items, totalItems, totalPrice, buyer }) {
       category: item.category,
       price: item.price,
       quantity: item.quantity,
+      size: item.size,
     })),
     totalItems,
     totalPrice,

@@ -11,6 +11,7 @@ export function ProductDetailPage() {
   const [quantity, setQuantity] = useState(1)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [selectedSize, setSelectedSize] = useState('')
 
   useEffect(() => {
     let active = true
@@ -28,6 +29,7 @@ export function ProductDetailPage() {
         }
 
         setProduct(data)
+        setSelectedSize(data.sizes?.[0] || '')
         setError(null)
       } catch (err) {
         console.error('Error al obtener producto', err)
@@ -47,7 +49,7 @@ export function ProductDetailPage() {
   const handleAdd = () => {
     if (!product) return
 
-    addItem(product, quantity)
+    addItem(product, quantity, { size: selectedSize || product.sizes?.[0] })
     navigate('/carrito')
   }
 
@@ -90,22 +92,18 @@ export function ProductDetailPage() {
           <p>{product.description}</p>
           <div className="pill-row">
             <div>
-              <p className="eyebrow">Colores</p>
-              <div className="pills">
-                {product.colors.map((color) => (
-                  <span key={color} className="pill">
-                    {color}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div>
-              <p className="eyebrow">Talles</p>
-              <div className="pills">
+              <p className="eyebrow">Seleccioná tu talle</p>
+              <div className="pills selectable">
                 {product.sizes.map((size) => (
-                  <span key={size} className="pill">
+                  <button
+                    key={size}
+                    type="button"
+                    className={`pill ${selectedSize === size ? 'active' : ''}`}
+                    onClick={() => setSelectedSize(size)}
+                    aria-pressed={selectedSize === size}
+                  >
                     {size}
-                  </span>
+                  </button>
                 ))}
               </div>
             </div>

@@ -4,7 +4,6 @@ import { useCart } from '../context/useCart'
 const navItems = [
   { to: '/', label: 'Inicio' },
   { to: '/catalogo', label: 'Colección' },
-  { to: '/carrito', label: 'Carrito' },
 ]
 
 function Header() {
@@ -26,12 +25,12 @@ function Header() {
           ))}
         </ul>
       </nav>
-      <div className="cart-pill" aria-label={`Artículos en carrito: ${totalItems}`}>
-        <span>Carrito</span>
+      <Link to="/carrito" className="cart-pill" aria-label={`Artículos en carrito: ${totalItems}`}>
+        <span className="cart-icon" aria-hidden="true">🛒</span>
         <span className="badge">{totalItems}</span>
-      </div>
+      </Link>
     </header>
   )
 }
 
-export default Header 
+export default Header

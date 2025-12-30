@@ -45,6 +45,10 @@ nav a:hover {
   background: rgba(157, 107, 255, 0.15);
 }
 
+.cart-icon {
+  font-size: 1.1rem;
+}
+
 .cart-pill {
   display: inline-flex;
   align-items: center;
@@ -207,6 +211,28 @@ nav a:hover {
   margin: 6px 0 4px;
 }
 
+.catalog-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0 20px;
+}
+
+.catalog-filters input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0f1118;
+  color: var(--text);
+}
+
+.filter-hints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -289,6 +315,31 @@ nav a:hover {
   border: 1px solid var(--border);
 }
 
+.pills.selectable .pill {
+  background: transparent;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.pills.selectable .pill.active,
+.filter-hints .pill.active {
+  background: linear-gradient(120deg, rgba(157, 107, 255, 0.35), rgba(0, 209, 255, 0.3));
+  border-color: rgba(157, 107, 255, 0.6);
+}
+
+.filter-hints .pill.ghost {
+  background: transparent;
+}
+
+.pills.selectable .pill:focus-visible,
+.filter-hints .pill:focus-visible,
+.catalog-filters input:focus-visible,
+.buyer-form input:focus-visible,
+.quantity input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .actions {
   display: flex;
   gap: 10px;
@@ -326,6 +377,22 @@ nav a:hover {
   grid-template-columns: 2fr 1fr;
   gap: 18px;
   align-items: start;
+}
+
+.buyer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.buyer-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0f1118;
+  color: var(--text);
 }
 
 .cart-list {
