@@ -10,7 +10,6 @@ export const products = [
     image: 'https://ik.imagekit.io/74j0izxpvl/buzo_arena.png',
     gallery: [
       'https://ik.imagekit.io/74j0izxpvl/buzo_arena.png',
-      'https://ik.imagekit.io/74j0izxpvl/buzo_espalda.png',
     ],
     featured: true,
   },
@@ -25,7 +24,6 @@ export const products = [
     image: 'https://ik.imagekit.io/74j0izxpvl/buzo_lila.png',
     gallery: [
       'https://ik.imagekit.io/74j0izxpvl/buzo_lila.png',
-      'https://ik.imagekit.io/74j0izxpvl/buzo_espalda.png',
     ],
     featured: true,
   },
@@ -35,12 +33,11 @@ export const products = [
     category: 'polerones',
     price: 56500,
     description:
-      'Verde frío con cuello alto y cierres invisibles. Inspirado en la energía nocturna de la ciudad, pensado para layering.',
+      'Verde frío con cuello alto. Inspirado en la energía nocturna de la ciudad, pensado para layering.',
     sizes: ['M', 'L', 'XL'],
     image: 'https://ik.imagekit.io/74j0izxpvl/buzo_verde_cuello.png',
     gallery: [
       'https://ik.imagekit.io/74j0izxpvl/buzo_verde_cuello.png',
-      'https://ik.imagekit.io/74j0izxpvl/buzo_lila_cuello.png',
     ],
     featured: false,
   },
@@ -55,7 +52,6 @@ export const products = [
     image: 'https://ik.imagekit.io/74j0izxpvl/buzo_lila_cuello.png',
     gallery: [
       'https://ik.imagekit.io/74j0izxpvl/buzo_lila_cuello.png',
-      'https://ik.imagekit.io/74j0izxpvl/buzo_verde_cuello.png',
     ],
     featured: false,
   },
@@ -65,12 +61,11 @@ export const products = [
     category: 'limited edition',
     price: 57500,
     description:
-      'Negro profundo con gráfica lateral y espalda estampada. Diseño recto y minimalista con reflejos holográficos.',
+      'Cuello alto y espalda estampada en color turquesa. Diseño recto y minimalista con reflejos holográficos en color arena.',
     sizes: ['M', 'L', 'XL'],
     image: 'https://ik.imagekit.io/74j0izxpvl/buzo_espalda.png',
     gallery: [
       'https://ik.imagekit.io/74j0izxpvl/buzo_espalda.png',
-      'https://ik.imagekit.io/74j0izxpvl/buzo_espaldaladrillo.png',
     ],
     featured: true,
   },
@@ -80,12 +75,11 @@ export const products = [
     category: 'limited edition',
     price: 59000,
     description:
-      'Edición cápsula con gráfico en tonos ladrillo. Interior cepillado y capucha cruzada para máxima comodidad.',
+      'Edición cápsula con gráfico en tonos ladrillo. Interior cepillado y cuello redondo para un fit cómodo y urbano.',
     sizes: ['S', 'M', 'L', 'XL'],
     image: 'https://ik.imagekit.io/74j0izxpvl/buzo_espaldaladrillo.png',
     gallery: [
       'https://ik.imagekit.io/74j0izxpvl/buzo_espaldaladrillo.png',
-      'https://ik.imagekit.io/74j0izxpvl/buzo_espalda.png',
     ],
     featured: false,
   },

@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section className="hero">
       <div className="hero-text">
-        <p className="eyebrow">Nueva entrega · React Router</p>
+        <p className="eyebrow">Conviértete en el protagonista</p>
         <h1>
           Vibra (Et)éreo
           <span className="gradient">· cápsula nocturna</span>
