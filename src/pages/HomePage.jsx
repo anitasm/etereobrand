@@ -1,9 +1,32 @@
+import { useEffect, useMemo, useState } from 'react'
 import { Hero } from '../components/Hero'
 import { ProductCard } from '../components/ProductCard'
-import { products } from '../data/products'
+import { fetchProducts } from '../data/productService'
 
 export function HomePage() {
-  const featured = products.filter((product) => product.featured)
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    let active = true
+
+    const loadProducts = async () => {
+      try {
+        const data = await fetchProducts()
+        if (active) setProducts(data)
+      } finally {
+        if (active) setLoading(false)
+      }
+    }
+
+    loadProducts()
+
+    return () => {
+      active = false
+    }
+  }, [])
+
+  const featured = useMemo(() => products.filter((product) => product.featured), [products])
 
   return (
     <div className="page">
@@ -43,11 +66,15 @@ export function HomePage() {
           <h2>Destacados</h2>
           <p className="muted">Explorá los buzos más pedidos de esta cápsula nocturna.</p>
         </div>
-        <div className="grid products">
-          {featured.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        {loading ? (
+          <p className="muted">Cargando selección...</p>
+        ) : (
+          <div className="grid products">
+            {featured.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
       </section>
     </div>
   )

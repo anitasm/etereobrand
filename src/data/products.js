@@ -1,89 +1,98 @@
-import { initializeApp } from "firebase/app";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDn7I3J0y_alvjIXvez2f7fnlmRbKd_ceQ",
-  authDomain: "etereobrand-ce927.firebaseapp.com",
-  projectId: "etereobrand-ce927",
-  storageBucket: "etereobrand-ce927.firebasestorage.app",
-  messagingSenderId: "1000084488702",
-  appId: "1:1000084488702:web:0aaf6e1d969b63dad900af"
-};
-
-export const app = initializeApp(firebaseConfig);
-
 export const products = [
   {
-    id: 'buzo-arena',
-    name: 'Buzo Arena Eterno',
+    id: 'hoodie-arena',
+    name: 'Hoodie Arena Eterno',
+    category: 'hoodies',
     price: 54000,
     description:
-      'Buzo oversize de felpa liviana con capucha amplia. Corte relajado que acompaña el movimiento urbano.',
+      'Hoodie oversize de felpa liviana con capucha amplia y ajustes reforzados. Corte relajado que acompaña el movimiento urbano.',
     colors: ['Arena', 'Tiza', 'Neutro'],
     sizes: ['S', 'M', 'L', 'XL'],
-    image: '/assets/buzo_arena.png',
-    gallery: ['/assets/buzo_arena.png', '/assets/buzo_espalda.png'],
+    image: 'https://ik.imagekit.io/74j0izxpvl/buzo_arena.png',
+    gallery: [
+      'https://ik.imagekit.io/74j0izxpvl/buzo_arena.png',
+      'https://ik.imagekit.io/74j0izxpvl/buzo_espalda.png',
+    ],
     featured: true,
   },
   {
-    id: 'buzo-lila',
-    name: 'Buzo Lila Neblina',
+    id: 'hoodie-lila',
+    name: 'Hoodie Lila Neblina',
+    category: 'hoodies',
     price: 56000,
     description:
-      'Lila desaturado con textura aterciopelada. Detalle de capucha reforzada y puños acanalados.',
+      'Lila desaturado con textura aterciopelada. Capucha forrada, puños acanalados y detalles tonales de la cápsula.',
     colors: ['Lila', 'Lavanda', 'Niebla'],
     sizes: ['S', 'M', 'L'],
-    image: '/assets/buzo_lila.png',
-    gallery: ['/assets/buzo_lila.png', '/assets/buzo_lila_cuello.png'],
+    image: 'https://ik.imagekit.io/74j0izxpvl/buzo_lila.png',
+    gallery: [
+      'https://ik.imagekit.io/74j0izxpvl/buzo_lila.png',
+      'https://ik.imagekit.io/74j0izxpvl/buzo_espalda.png',
+    ],
     featured: true,
   },
   {
-    id: 'buzo-verde',
-    name: 'Buzo Verde Órbita',
+    id: 'poleron-verde',
+    name: 'Polerón Verde Órbita',
+    category: 'polerones',
     price: 56500,
     description:
-      'Verde frío con cuello alto y cierres invisibles. Inspirado en la energía nocturna de la ciudad.',
+      'Verde frío con cuello alto y cierres invisibles. Inspirado en la energía nocturna de la ciudad, pensado para layering.',
     colors: ['Verde', 'Selva'],
     sizes: ['M', 'L', 'XL'],
-    image: '/assets/buzo_verde_cuello.png',
-    gallery: ['/assets/buzo_verde_cuello.png', '/assets/buzo_espaldaladrillo.png'],
+    image: 'https://ik.imagekit.io/74j0izxpvl/buzo_verde_cuello.png',
+    gallery: [
+      'https://ik.imagekit.io/74j0izxpvl/buzo_verde_cuello.png',
+      'https://ik.imagekit.io/74j0izxpvl/buzo_lila_cuello.png',
+    ],
     featured: false,
   },
   {
-    id: 'buzo-gris',
-    name: 'Buzo Gris Lunar',
+    id: 'poleron-lila',
+    name: 'Polerón Lila Eclipse',
+    category: 'polerones',
     price: 55000,
     description:
-      'Gris cemento con cuello alto y ajuste suave. Perfecto para layering y noches de pista.',
+      'Gris lila con cuello alto y ajuste suave. Perfecto para noches frías y outfits de pista con contraste.',
     colors: ['Gris', 'Humo'],
     sizes: ['S', 'M', 'L', 'XL'],
-    image: '/assets/buzo_gris_cuello.png',
-    gallery: ['/assets/buzo_gris_cuello.png', '/assets/buzo_espalda.png'],
+    image: 'https://ik.imagekit.io/74j0izxpvl/buzo_lila_cuello.png',
+    gallery: [
+      'https://ik.imagekit.io/74j0izxpvl/buzo_lila_cuello.png',
+      'https://ik.imagekit.io/74j0izxpvl/buzo_verde_cuello.png',
+    ],
     featured: false,
   },
   {
-    id: 'buzo-espalda',
-    name: 'Buzo Negro Eclipse',
+    id: 'limited-graphite',
+    name: 'Limited Edition Eclipse',
+    category: 'limited edition',
     price: 57500,
     description:
-      'Negro profundo con gráfica lateral. Diseño recto y minimalista para resaltar los reflejos holográficos.',
+      'Negro profundo con gráfica lateral y espalda estampada. Diseño recto y minimalista con reflejos holográficos.',
     colors: ['Negro', 'Holográfico'],
     sizes: ['M', 'L', 'XL'],
-    image: '/assets/buzo_espalda.png',
-    gallery: ['/assets/buzo_espalda.png', '/assets/buzo_espaldaladrillo.png'],
-    featured: false,
-  },
-  {
-    id: 'buzo-especial',
-    name: 'Buzo Ser Etereo',
-    price: 59000,
-    description:
-      'Edición cápsula inspirada en la comunidad (Et)érea. Interior cepillado y capucha cruzada.',
-    colors: ['Humo', 'Ceniza'],
-    sizes: ['S', 'M', 'L', 'XL'],
-    image: '/assets/buzo_lila_cuello.png',
-    gallery: ['/assets/buzo_lila_cuello.png', '/assets/buzo_espalda.png'],
+    image: 'https://ik.imagekit.io/74j0izxpvl/buzo_espalda.png',
+    gallery: [
+      'https://ik.imagekit.io/74j0izxpvl/buzo_espalda.png',
+      'https://ik.imagekit.io/74j0izxpvl/buzo_espaldaladrillo.png',
+    ],
     featured: true,
   },
+  {
+    id: 'limited-brick',
+    name: 'Limited Edition Brick',
+    category: 'limited edition',
+    price: 59000,
+    description:
+      'Edición cápsula con gráfico en tonos ladrillo. Interior cepillado y capucha cruzada para máxima comodidad.',
+    colors: ['Humo', 'Ceniza'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    image: 'https://ik.imagekit.io/74j0izxpvl/buzo_espaldaladrillo.png',
+    gallery: [
+      'https://ik.imagekit.io/74j0izxpvl/buzo_espaldaladrillo.png',
+      'https://ik.imagekit.io/74j0izxpvl/buzo_espalda.png',
+    ],
+    featured: false,
+  },
 ]
-
-

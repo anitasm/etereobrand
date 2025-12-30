@@ -1,16 +1,67 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useCart } from '../context/useCart'
-import { products } from '../data/products'
+import { fetchProductById } from '../data/productService'
 
 export function ProductDetailPage() {
   const { productId } = useParams()
-  const product = products.find((item) => item.id === productId)
   const navigate = useNavigate()
   const { addItem } = useCart()
+  const [product, setProduct] = useState(null)
   const [quantity, setQuantity] = useState(1)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
-  if (!product) {
+  useEffect(() => {
+    let active = true
+
+    const loadProduct = async () => {
+      setLoading(true)
+      try {
+        const data = await fetchProductById(productId)
+        if (!active) return
+
+        if (!data) {
+          setError('Producto no encontrado')
+          setProduct(null)
+          return
+        }
+
+        setProduct(data)
+        setError(null)
+      } catch (err) {
+        console.error('Error al obtener producto', err)
+        if (active) setError('No pudimos cargar el producto. Intentalo nuevamente.')
+      } finally {
+        if (active) setLoading(false)
+      }
+    }
+
+    loadProduct()
+
+    return () => {
+      active = false
+    }
+  }, [productId])
+
+  const handleAdd = () => {
+    if (!product) return
+
+    addItem(product, quantity)
+    navigate('/carrito')
+  }
+
+  if (loading) {
+    return (
+      <div className="page">
+        <section className="section">
+          <p className="muted">Cargando producto...</p>
+        </section>
+      </div>
+    )
+  }
+
+  if (error || !product) {
     return (
       <div className="page">
         <section className="section">
@@ -22,11 +73,6 @@ export function ProductDetailPage() {
         </section>
       </div>
     )
-  }
-
-  const handleAdd = () => {
-    addItem(product, quantity)
-    navigate('/carrito')
   }
 
   return (
