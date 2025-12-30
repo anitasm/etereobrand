@@ -16,29 +16,29 @@ const SALES_COLLECTION = 'ventas'
 const productsCollection = collection(db, PRODUCTS_COLLECTION)
 const salesCollection = collection(db, SALES_COLLECTION)
 
-async function seedProductsIfEmpty() {
+async function syncProductsFromSeed() {
   const existing = await getDocs(productsCollection)
+  const existingProducts = new Map(existing.docs.map((document) => [document.id, document.data()]))
 
-  if (!existing.empty) return
+  const operations = seedProducts.map((product) => {
+    const basePayload = existingProducts.has(product.id)
+      ? product
+      : { ...product, createdAt: serverTimestamp() }
 
-  const operations = seedProducts.map((product) =>
-    setDoc(doc(productsCollection, product.id), {
-      ...product,
-      createdAt: serverTimestamp(),
-    }),
-  )
+    return setDoc(doc(productsCollection, product.id), basePayload, { merge: true })
+  })
 
   await Promise.all(operations)
 }
 
 export async function fetchProducts() {
-  await seedProductsIfEmpty()
+  await syncProductsFromSeed()
   const snapshot = await getDocs(productsCollection)
   return snapshot.docs.map((document) => ({ id: document.id, ...document.data() }))
 }
 
 export async function fetchProductById(productId) {
-  await seedProductsIfEmpty()
+  await syncProductsFromSeed()
   const reference = doc(productsCollection, productId)
   const snapshot = await getDoc(reference)
 
